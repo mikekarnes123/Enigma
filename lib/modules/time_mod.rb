@@ -1,5 +1,3 @@
-require 'pry'
-
 module TimeMod
   def current_date
     time = Time.new

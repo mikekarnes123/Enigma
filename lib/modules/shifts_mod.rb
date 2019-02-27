@@ -1,4 +1,3 @@
-require 'pry'
 module ShiftsMod
   def a_shift(char, date_shift, direction)
     return "" if char == nil
@@ -23,9 +22,6 @@ module ShiftsMod
     date_shift = "#{date_shift[-3]}"
     total_shift = (key_shift.to_i + date_shift.to_i) % 27
     whole_range = ("a".."z").to_a << " "
-    # index = whole_range.index(char)
-    # range = whole_range.rotate(index)
-    # range[total_shift]
     case
     when direction == "forward"
       index = whole_range.index(char)
@@ -43,9 +39,6 @@ module ShiftsMod
     date_shift = "#{date_shift[-2]}"
     total_shift = (key_shift.to_i + date_shift.to_i) % 27
     whole_range = ("a".."z").to_a << " "
-    # index = whole_range.index(char)
-    # range = whole_range.rotate(index)
-    # range[total_shift]
     case
     when direction == "forward"
       index = whole_range.index(char)
@@ -63,9 +56,6 @@ module ShiftsMod
     date_shift = "#{date_shift[-1]}"
     total_shift = (key_shift.to_i + date_shift.to_i) % 27
     whole_range = ("a".."z").to_a << " "
-    # index = whole_range.index(char)
-    # range = whole_range.rotate(index)
-    # range[total_shift]
     case
     when direction == "forward"
       index = whole_range.index(char)

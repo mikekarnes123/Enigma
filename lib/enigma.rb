@@ -10,7 +10,6 @@ class Enigma
   :key,
   :date
   def initialize
-    # @message = message
     @key = ''
     @date = current_date
   end
@@ -23,7 +22,10 @@ class Enigma
     encrypted = ""
     message.split('').each_slice(4) {|slice| sliced << slice}
     sliced.each do |slice|
-      slice = [a_shift(slice[0], date_shift, "forward"), b_shift(slice[1], date_shift, "forward"), c_shift(slice[2],date_shift, "forward"), d_shift(slice[3],date_shift, "forward")].join
+      slice = [a_shift(slice[0], date_shift, "forward"),
+               b_shift(slice[1], date_shift, "forward"),
+               c_shift(slice[2],date_shift, "forward"),
+               d_shift(slice[3],date_shift, "forward")].join
       encrypted = encrypted + slice
     end
     {encryption: encrypted, key: key, date: date}
@@ -37,10 +39,12 @@ class Enigma
     decrypted = ""
     message.split('').each_slice(4) {|slice| sliced << slice}
     sliced.each do |slice|
-      slice = [a_shift(slice[0], date_shift, "backward"), b_shift(slice[1], date_shift, "backward"), c_shift(slice[2],date_shift, "backward"), d_shift(slice[3],date_shift, "backward")].join
+      slice = [a_shift(slice[0], date_shift, "backward"),
+               b_shift(slice[1], date_shift, "backward"),
+               c_shift(slice[2],date_shift, "backward"),
+               d_shift(slice[3],date_shift, "backward")].join
       decrypted = decrypted + slice
     end
     {decryption: decrypted, key: key, date: date}
   end
-
 end
